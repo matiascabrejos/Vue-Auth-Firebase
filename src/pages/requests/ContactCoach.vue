@@ -41,7 +41,7 @@ export default {
         email: this.email,
         message: this.message,
         coachId: this.$route.params.id,
-      })
+      });
       this.$router.replace('/coaches')
     },
   },
