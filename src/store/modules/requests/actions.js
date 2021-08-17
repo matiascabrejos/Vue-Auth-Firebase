@@ -22,8 +22,9 @@ export default {
         context.commit('addRequest', newRequest);
     },
     async fetchRequests(context) {
+        const token = context.rootGetters.token;
         const coachId = context.rootGetters.userId;
-        const response = await fetch(`https://vue-http-1dde7-default-rtdb.firebaseio.com/requests/${coachId}.json`)
+        const response = await fetch(`https://vue-http-1dde7-default-rtdb.firebaseio.com/requests/${coachId}.json?auth=` + token)
         const responseData = await response.json();
 
         if(!response.ok) {
